@@ -14,9 +14,16 @@ class VerseDisplay extends Component {
               <center><h4>मूलश्लोकाः</h4></center>
             </CardHeader>
             <CardBody>
-              <h5 className="display-linebreak">
-
-              </h5>
+              <center>
+                <h5 className="display-linebreak">
+                  {
+                    this.props.mainText.map((verse, verse_index) => {
+                      verse = verse.concat(["\n"])
+                      return verse.map((line, index) => <div key={[verse_index, index]}>{ line }<br /></div>)
+                    })
+                  }
+                </h5>
+              </center>
             </CardBody>
           </Card>
         </Col>
